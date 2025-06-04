@@ -7,7 +7,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 #ChargeFF_YAHL_DF = pd.read_csv(os.path.join(dir_path,'ChargeFFdata_YAHL.csv'))
 #print(ChargeFF_YAHL_DF.shape)
 
-ChargeFF_YAHL_Mod_DF = pd.read_csv(os.path.join(dir_path,'GFFs_Lat_Fit/ChargeFFdata_YAHL_Mod.csv'))
+ChargeFF_YAHL_Mod_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/ChargeFF_Fit/ChargeFFdata_YAHL_Mod.csv'))
 print(ChargeFF_YAHL_Mod_DF.shape)
 
 GFFdatalat_DF = pd.read_csv(os.path.join(dir_path,'GFFs_Lat_Fit/GFFDataLat_Xiang.csv'))
@@ -28,4 +28,4 @@ print(PPDF_Fit_DF.shape)
 
 mergePDF = pd.concat([PDF_Fit_DF, PPDF_Fit_DF], axis=0)
 print(mergePDF.shape)
-merge.to_csv(os.path.join(dir_path,"PDFdata.csv"),index=None)
+merge.to_csv(os.path.join(dir_path,"GUMPDATA/PDFdata.csv"),index=None)
