@@ -30,9 +30,9 @@ merge = pd.concat([ChargeFF_YAHL_Mod_DF, GFFdatalat_DF,EtFFData_ETMC_DF], axis=0
 print(merge.shape)
 merge.to_csv(os.path.join(dir_path,"GUMPDATA/GFFdata_Quark.csv"),index=None)
 
-# ================================
+# ===================================
 # Merge Fitted PDFs and polarized PDF
-# ================================
+# ===================================
 
 PDF_Fit_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/PDF_Fit/PDFdata50.csv'))
 print(PDF_Fit_DF.shape)
@@ -42,3 +42,10 @@ print(PPDF_Fit_DF.shape)
 mergePDF = pd.concat([PDF_Fit_DF, PPDF_Fit_DF], axis=0)
 print(mergePDF.shape)
 mergePDF.to_csv(os.path.join(dir_path,"GUMPDATA/PDFdata.csv"),index=None)
+
+# ===================================
+# tPDF extraction
+# ===================================
+tPDF_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/tPDFs_Lat/tPDFdata.csv'))
+print(tPDF_DF.shape)
+tPDF_DF.to_csv(os.path.join(dir_path,"GUMPDATA/tPDFdata.csv"),index=None)
