@@ -1,5 +1,8 @@
 import pandas as pd
 import numpy as np
+import os
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def split_dataframe_columns(df, sizes, names=None):
     """
@@ -26,12 +29,12 @@ def split_dataframe_columns(df, sizes, names=None):
 
 # Reading the txt files into pandaframes
 
-HSff   = pd.read_csv("H_An0_u+d.txt", delim_whitespace=True, header = None)
-HNSff  = pd.read_csv("H_An0_u-d.txt", delim_whitespace=True, header = None)
-ESff   = pd.read_csv("E_Bn0_u+d.txt", delim_whitespace=True, header = None)
-ENSff  = pd.read_csv("E_Bn0_u-d.txt", delim_whitespace=True, header = None)
-HtSff  = pd.read_csv("axial_H_An0_u+d.txt", delim_whitespace=True, header = None)
-HtNSff = pd.read_csv("axial_H_An0_u-d.txt", delim_whitespace=True, header = None)
+HSff   = pd.read_csv(os.path.join(dir_path,'Rawdata/H_An0_u+d.txt'), delim_whitespace=True, header = None)
+HNSff  = pd.read_csv(os.path.join(dir_path,'Rawdata/H_An0_u-d.txt'), delim_whitespace=True, header = None)
+ESff   = pd.read_csv(os.path.join(dir_path,'Rawdata/E_Bn0_u+d.txt'), delim_whitespace=True, header = None)
+ENSff  = pd.read_csv(os.path.join(dir_path,'Rawdata/E_Bn0_u-d.txt'), delim_whitespace=True, header = None)
+HtSff  = pd.read_csv(os.path.join(dir_path,'Rawdata/axial_H_An0_u+d.txt'), delim_whitespace=True, header = None)
+HtNSff = pd.read_csv(os.path.join(dir_path,'Rawdata/axial_H_An0_u-d.txt'), delim_whitespace=True, header = None)
 
 # Read the README.txt: the format are (|t|, A1_mean, A1_err_stat,A1_err_sys,A1_err_tot, A2...)
 # Split the dataframe converted from the data file in 1, 4, 4, 4, 4, 4 for t, A1, A2, A3, A4, A5
@@ -100,4 +103,4 @@ stdHtNS = DataFrame_Convert_std_Form(HtNSffsplit,2,"NS")
 
 combine= pd.concat([stdHS, stdHNS, stdES,stdENS,stdHtS,stdHtNS], axis=0)
 
-combine.to_csv("merge.csv",index=None)
+combine.to_csv(os.path.join(dir_path,'GFFDataLat_BNL.csv'),index=None)
