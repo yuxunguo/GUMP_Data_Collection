@@ -1,5 +1,8 @@
 import numpy as np
 import pandas as pd
+import os
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 x_vals = [0.195, 0.205, 0.215, 0.225, 0.235, 0.245, 0.255, 0.265, 0.275, 0.285, 0.295, 0.305,
             0.315, 0.325, 0.335, 0.345, 0.355, 0.365, 0.375, 0.385, 0.395, 0.405, 0.415, 0.425,
@@ -68,4 +71,4 @@ df["flavor"] = "NS"
 
 print(df)
 
-df.to_csv("Ht_LI.csv", index=False)
+df.to_csv(os.path.join(dir_path,'Ht_LI.csv'), index=False)

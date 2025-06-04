@@ -1,9 +1,12 @@
 import numpy as np
 import pandas as pd
+import os
 
-Hpd = pd.read_csv("H_LI.csv")
-Epd = pd.read_csv("E_LI.csv")
-Htpd = pd.read_csv("Ht_LI.csv")
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+Hpd =  pd.read_csv(os.path.join(dir_path,'Preprocess/H_LI.csv'))
+Epd =  pd.read_csv(os.path.join(dir_path,'Preprocess/E_LI.csv'))
+Htpd = pd.read_csv(os.path.join(dir_path,'Preprocess/Ht_LI.csv'))
 
 syserrH = np.array(Hpd["f"]*0.25)
 staterrH = np.array(Hpd["delta f"])
@@ -24,4 +27,4 @@ Htpd["delta f"] = toterrHt
 
 combined = pd.concat([Hpd, Epd, Htpd], axis=0)
 
-combined.to_csv("tPDFdata.csv", index=False)
+combined.to_csv(os.path.join(dir_path,"tPDFdata.csv"), index=False)
