@@ -104,7 +104,7 @@ def GetFF(kID, kQ2):# {{{
 # proton mass
 Mp = 0.938272
 # array of |t|=Q^2 that we want to tabulate
-t_array = np.linspace(0.01,2.01,21)
+t_array = np.linspace(0.01,1.51,16)
 
 def GEGM_to_F1F2_err_propg(GE, dGE, GM, dGM, Q2, M):
     

@@ -121,6 +121,12 @@ stdENS_Mod  = DataFrame_ExtErr(stdENS)
 stdHtS_Mod  = DataFrame_ExtErr(stdHtS)
 stdHtNS_Mod = DataFrame_ExtErr(stdHtNS)
 
-combine_Mod= pd.concat([stdHS_Mod, stdHNS_Mod, stdES_Mod,stdENS_Mod,stdHtS_Mod,stdHtNS_Mod], axis=0)
+stdHS_Mod   = stdHS_Mod[stdHS_Mod['t']    >= -1.6]
+stdHNS_Mod  = stdHNS_Mod[stdHNS_Mod['t']  >= -1.6]
+stdES_Mod   = stdES_Mod[stdES_Mod['t']    >= -1.6]
+stdENS_Mod  = stdENS_Mod[stdENS_Mod['t']  >= -1.6]
+stdHtS_Mod  = stdHtS_Mod[stdHtS_Mod['t']  >= -1.6]
+stdHtNS_Mod = stdHtNS_Mod[stdHtNS_Mod['t']>= -1.6]
 
+combine_Mod= pd.concat([stdHS_Mod, stdHNS_Mod, stdES_Mod,stdENS_Mod,stdHtS_Mod,stdHtNS_Mod], axis=0)
 combine_Mod.to_csv(os.path.join(dir_path,'GFFDataLat_BNL_Mod.csv'),index=None)
