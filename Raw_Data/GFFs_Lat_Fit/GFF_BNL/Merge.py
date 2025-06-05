@@ -94,7 +94,8 @@ def DataFrame_Convert_std_Form(group, gpdtype: int, flv: str):
     return combined
     
 def DataFrame_ExtErr(DF: pd.DataFrame):
-    ext_err = np.array(DF['f'])*0.25
+    
+    ext_err = np.array(DF['f'])*0.30
     tot_err = np.array(DF['delta f'])
     Mod_err = np.sqrt(ext_err**2+tot_err**2)
     
