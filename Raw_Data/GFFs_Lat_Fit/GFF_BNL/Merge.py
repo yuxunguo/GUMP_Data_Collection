@@ -93,6 +93,14 @@ def DataFrame_Convert_std_Form(group, gpdtype: int, flv: str):
     
     return combined
     
+def DataFrame_ExtErr(DF: pd.DataFrame):
+    ext_err = np.array(DF['f'])*0.25
+    tot_err = np.array(DF['delta f'])
+    Mod_err = np.sqrt(ext_err**2+tot_err**2)
+    
+    DF['delta f'] = Mod_err
+    return DF
+    
     
 stdHS   = DataFrame_Convert_std_Form(HSffsplit,  0,"S")
 stdHNS  = DataFrame_Convert_std_Form(HNSffsplit, 0,"NS")
@@ -104,3 +112,14 @@ stdHtNS = DataFrame_Convert_std_Form(HtNSffsplit,2,"NS")
 combine= pd.concat([stdHS, stdHNS, stdES,stdENS,stdHtS,stdHtNS], axis=0)
 
 combine.to_csv(os.path.join(dir_path,'GFFDataLat_BNL.csv'),index=None)
+
+stdHS_Mod   = DataFrame_ExtErr(stdHS)
+stdHNS_Mod  = DataFrame_ExtErr(stdHNS)
+stdES_Mod   = DataFrame_ExtErr(stdES)
+stdENS_Mod  = DataFrame_ExtErr(stdENS)
+stdHtS_Mod  = DataFrame_ExtErr(stdHtS)
+stdHtNS_Mod = DataFrame_ExtErr(stdHtNS)
+
+combine_Mod= pd.concat([stdHS_Mod, stdHNS_Mod, stdES_Mod,stdENS_Mod,stdHtS_Mod,stdHtNS_Mod], axis=0)
+
+combine_Mod.to_csv(os.path.join(dir_path,'GFFDataLat_BNL_Mod.csv'),index=None)
