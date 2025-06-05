@@ -126,8 +126,6 @@ def GEGM_to_F1F2_err_propg(GE, dGE, GM, dGM, Q2, M):
 
     return (F1, dF1), (F2, dF2)
 
-import numpy as np
-
 def FpFn_to_FSFNS_err_propg(Fp, dFp, Fn, dFn):
     """
     Compute F_u+F_d and F_u-F_d with uncertainties from proton and neutron form factors.
