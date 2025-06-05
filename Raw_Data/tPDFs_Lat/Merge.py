@@ -8,13 +8,13 @@ Hpd =  pd.read_csv(os.path.join(dir_path,'Preprocess/H_LI.csv'))
 Epd =  pd.read_csv(os.path.join(dir_path,'Preprocess/E_LI.csv'))
 Htpd = pd.read_csv(os.path.join(dir_path,'Preprocess/Ht_LI.csv'))
 
-syserrH = np.array(Hpd["f"]*0.25)
+syserrH = np.array(Hpd["f"]*0.3)
 staterrH = np.array(Hpd["delta f"])
 
-syserrE = np.array(Epd["f"]*0.25)
+syserrE = np.array(Epd["f"]*0.3)
 staterrE = np.array(Epd["delta f"])
 
-syserrHt = np.array(Htpd["f"]*0.25)
+syserrHt = np.array(Htpd["f"]*0.3)
 staterrHt = np.array(Htpd["delta f"])
 
 toterrH = np.sqrt(syserrH ** 2 + staterrH **2)
