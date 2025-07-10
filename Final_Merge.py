@@ -42,9 +42,9 @@ merge.to_csv(os.path.join(dir_path,"GUMPDATA/GFFdata_Quark.csv"),index=None)
 # Merge Fitted PDFs and polarized PDF
 # ===================================
 
-PDF_Fit_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/PDF_Fit/PDFdata50.csv'))
+PDF_Fit_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/PDF_Fit/PDFdata60.csv'))
 print(PDF_Fit_DF.shape)
-PPDF_Fit_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/PDF_Fit/PPDFdata50.csv'))
+PPDF_Fit_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/PDF_Fit/PPDFdata60.csv'))
 print(PPDF_Fit_DF.shape)
 
 mergePDF = pd.concat([PDF_Fit_DF, PPDF_Fit_DF], axis=0)
