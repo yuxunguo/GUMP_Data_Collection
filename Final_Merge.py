@@ -57,3 +57,21 @@ mergePDF.to_csv(os.path.join(dir_path,"GUMPDATA/PDFdata.csv"),index=None)
 tPDF_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/tPDFs_Lat/tPDFdata.csv'))
 print(tPDF_DF.shape)
 tPDF_DF.to_csv(os.path.join(dir_path,"GUMPDATA/tPDFdata.csv"),index=None)
+
+# ===================================
+# DVCS cross-section and asymmetries
+# ===================================
+
+DVCS_names = ["y","xB","t","Q","phi","f","delta f","pol"]
+DVCS_xsec_unp = pd.read_excel(os.path.join(dir_path,'Raw_Data/DVCS_data/DVCSoutput/CS_Combined.xlsx'),names=DVCS_names)
+DVCS_xsec_pol = pd.read_excel(os.path.join(dir_path,'Raw_Data/DVCS_data/DVCSoutput/CSD_Combined.xlsx'),names=DVCS_names)
+DVCS_asymmetry = pd.read_excel(os.path.join(dir_path,'Raw_Data/DVCS_data/DVCSoutput/ASYMMETRIES_combined.xlsx'),names=DVCS_names)
+
+print(DVCS_xsec_unp.shape)
+print(DVCS_xsec_pol.shape)
+print(DVCS_asymmetry.shape)
+
+DVCS_xsec_comb = pd.concat([DVCS_xsec_unp, DVCS_xsec_pol], ignore_index=True)
+
+DVCS_xsec_comb.to_csv(os.path.join(dir_path,"GUMPDATA/DVCSxsec.csv"),index=None)
+DVCS_asymmetry.to_csv(os.path.join(dir_path,"GUMPDATA/DVCSAsym.csv"),index=None)
