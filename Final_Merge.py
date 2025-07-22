@@ -27,7 +27,7 @@ print(GFFdatalat_DF.shape)
 GFFdatalat_DF_Mod = pd.read_csv(os.path.join(dir_path,'Raw_Data/GFFs_Lat_Fit/GFF_BNL/GFFDataLat_BNL_Mod.csv'))
 print(GFFdatalat_DF_Mod.shape)
 
-EtFFData_ETMC_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/GFFs_Lat_Fit/GFF_ETMC/EtFFdata_ETMC.csv'),header=None, names=['j','t','mu','f','delta f','GPD type','flavor'])
+EtFFData_ETMC_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/GFFs_Lat_Fit/GFF_ETMC/EtFFdata_ETMC_Mod.csv'),header=None, names=['j','t','mu','f','delta f','GPD type','flavor'])
 print(EtFFData_ETMC_DF.shape)
 
 # ================================
