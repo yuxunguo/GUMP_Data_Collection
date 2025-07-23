@@ -1,22 +1,48 @@
 import pandas as pd
 import numpy as np
 import os
-
+import matplotlib.pyplot as plt
+from multiprocessing import Pool
+    
 dir_path = os.path.dirname(os.path.realpath(__file__))
 Q_threshold = 1.9
 xB_Cut = 0.5
 M=0.938
 
 DVCS_names = ["y","xB","t","Q","phi","f","delta f","pol"]
+cols_to_check = ['y', 'xB', 't', 'Q', 'phi', 'f', 'pol']
+
+# ============================================================
+# Read from the DVCS including cross-sections and asymmetries
+# ============================================================
+
 DVCS_xsec_unp = pd.read_excel(os.path.join(dir_path,'DVCSoutput/CS_Combined.xlsx'),names=DVCS_names)
 DVCS_xsec_pol = pd.read_excel(os.path.join(dir_path,'DVCSoutput/CSD_Combined.xlsx'),names=DVCS_names)
 DVCS_asymmetry = pd.read_excel(os.path.join(dir_path,'DVCSoutput/ASYMMETRIES_combined.xlsx'),names=DVCS_names)
+
+# ============================================================
+# Merge polarized and unpolaried cross-sections and output
+# ============================================================
 
 DVCS_xsec_comb = pd.concat([DVCS_xsec_unp, DVCS_xsec_pol], ignore_index=True)
 DVCS_xsec_comb.to_csv(os.path.join(dir_path,"DVCSxsec_New.csv"),index=None)
 DVCS_asymmetry.to_csv(os.path.join(dir_path,"DVCSAsym.csv"),index=None)
 
+# ============================================================
+# Merge with the previous DVCS data (seemingly not overlapping)
+# ============================================================
+
 DVCS_xsec_old = pd.read_csv(os.path.join(dir_path,'DVCSxsec_Old.csv'),names = ['y', 'xB', 't', 'Q', 'phi', 'f', 'delta f', 'pol'])
+
+combined = pd.concat([DVCS_xsec_comb, DVCS_xsec_old], ignore_index=True)
+combined_sel = combined[(combined['Q'] > Q_threshold) & (combined['xB'] < xB_Cut) & (combined['t']*(combined['xB']-1) - M ** 2 * combined['xB'] ** 2 > 0)]
+
+lengtot = combined.shape[0]
+lengsel = combined_sel.shape[0]
+
+# ============================================================
+# Drop the duplicated ones with some relative tolerance RT
+# ============================================================
 
 def drop_duplicates_rel_tol(df, compare_cols, rtol=1e-2):
     # Separate columns by type
@@ -58,23 +84,6 @@ def drop_duplicates_rel_tol(df, compare_cols, rtol=1e-2):
 
     return pd.concat(result_rows, ignore_index=True)
 
-combined = pd.concat([DVCS_xsec_comb, DVCS_xsec_old], ignore_index=True)
-combined_sel = combined[(combined['Q'] > Q_threshold) & (combined['xB'] < xB_Cut) & (combined['t']*(combined['xB']-1) - M ** 2 * combined['xB'] ** 2 > 0)]
-
-rt = 0.05
-cols_to_check = ['y', 'xB', 't', 'Q', 'phi', 'f', 'pol']
-combined_uni = drop_duplicates_rel_tol(combined, compare_cols=cols_to_check, rtol=rt)
-combined_uni.to_csv(os.path.join(dir_path,'DVCSxsec_Merge.csv'), index=False)
-
-
-# ======================================================
-# Below test the choice of rtol
-# ======================================================
-
-'''
-lengtot = combined.shape[0]
-lengsel = combined_sel.shape[0]
-
 def Test_rtol(rt: float):
     
     combined_uni = drop_duplicates_rel_tol(combined, compare_cols=cols_to_check, rtol=rt)
@@ -85,29 +94,38 @@ def Test_rtol(rt: float):
     
     return [lengtot-lenguni, lengsel-lengunisel]
 
-rtollst = np.exp(np.linspace(np.log(0.0001),np.log(0.1),20))
+if __name__ == "__main__":
+    
+    RT = 0.01
+    combined_uni = drop_duplicates_rel_tol(combined, compare_cols=cols_to_check, rtol=RT)
+    combined_uni.to_csv(os.path.join(dir_path,'DVCSxsec_Merge.csv'), index=False)
 
-Testrtol = np.array([Test_rtol(rt) for rt in rtollst])
+    # ======================================================
+    # Below test the choice of rtol
+    # ======================================================
+    '''
+    rtollst = np.exp(np.linspace(np.log(0.0001),np.log(0.2),150))
 
-Test = np.hstack((rtollst.reshape(-1, 1), Testrtol))
+    with Pool() as pool:
+        Testrtol = pool.map(Test_rtol, rtollst)
+        Testrtol = np.array(Testrtol)
 
-dftest = pd.DataFrame(Test, columns=['rtol', 'dup', 'dup2'])
-dftest.to_csv(os.path.join(dir_path,'DVCS_duplicate.csv'), index=False)
-'''
+    Test = np.hstack((rtollst.reshape(-1, 1), Testrtol))
 
-'''
-import matplotlib.pyplot as plt
+    dftest = pd.DataFrame(Test, columns=['rtol', 'dup', 'dup2'])
+    dftest.to_csv(os.path.join(dir_path,'DVCS_duplicate_test.csv'), index=False)
+    '''
+    '''
+    dftest = pd.read_csv(os.path.join(dir_path,'DVCS_duplicate_test.csv'), header=0, names=['rtol', 'dup', 'dup2'])
 
-dftest = pd.read_csv(os.path.join(dir_path,'DVCS_duplicate.csv'),header=0, names=['rtol', 'dup', 'dup2'])
-
-plt.plot(dftest['rtol'], dftest['dup'], label='duplicates')  # Replace as needed
-plt.plot(dftest['rtol'], dftest['dup2'], label='duplicates (large Q)')
-plt.xlabel('rtol')
-plt.ylabel('Num. of duplicates')
-plt.title('Plot of Num. of duplicates vs rtol')
-plt.xscale('log')
-plt.yscale('log')
-plt.legend()
-plt.grid(True)
-plt.show()
-'''
+    plt.plot(dftest['rtol'], dftest['dup'], label='duplicates')  # Replace as needed
+    plt.plot(dftest['rtol'], dftest['dup2'], label='duplicates (large Q)')
+    plt.xlabel('rtol')
+    plt.ylabel('Num. of duplicates')
+    plt.title('Plot of Num. of duplicates vs rtol')
+    plt.xscale('log')
+    plt.yscale('log')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+    '''
