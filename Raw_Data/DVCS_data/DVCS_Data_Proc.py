@@ -34,6 +34,12 @@ DVCS_asymmetry.to_csv(os.path.join(dir_path,"DVCSAsym.csv"),index=None)
 
 DVCS_xsec_old = pd.read_csv(os.path.join(dir_path,'DVCSxsec_Old.csv'),names = ['y', 'xB', 't', 'Q', 'phi', 'f', 'delta f', 'pol'])
 
+DVCS_xsec_comb_sel = DVCS_xsec_comb[(DVCS_xsec_comb['Q'] > Q_threshold) & (DVCS_xsec_comb['xB'] < xB_Cut) & (DVCS_xsec_comb['t']*(DVCS_xsec_comb['xB']-1) - M ** 2 * DVCS_xsec_comb['xB'] ** 2 > 0) & DVCS_xsec_comb['delta f']>0]
+DVCS_xsec_old_sel = DVCS_xsec_old[(DVCS_xsec_old['Q'] > Q_threshold) & (DVCS_xsec_old['xB'] < xB_Cut) & (DVCS_xsec_old['t']*(DVCS_xsec_old['xB']-1) - M ** 2 * DVCS_xsec_old['xB'] ** 2 > 0) & DVCS_xsec_old['delta f']>0]
+
+DVCS_xsec_comb_sel.to_csv(os.path.join(dir_path,"DVCSxsec_New_Sel.csv"),index=None)
+DVCS_xsec_old_sel.to_csv(os.path.join(dir_path,"DVCSxsec_Old_Sel.csv"),index=None)
+
 combined = pd.concat([DVCS_xsec_comb, DVCS_xsec_old], ignore_index=True)
 combined_sel = combined[(combined['Q'] > Q_threshold) & (combined['xB'] < xB_Cut) & (combined['t']*(combined['xB']-1) - M ** 2 * combined['xB'] ** 2 > 0)]
 
@@ -96,9 +102,9 @@ def Test_rtol(rt: float):
 
 if __name__ == "__main__":
     
-    RT = 0.01
-    combined_uni = drop_duplicates_rel_tol(combined, compare_cols=cols_to_check, rtol=RT)
-    combined_uni.to_csv(os.path.join(dir_path,'DVCSxsec_Merge.csv'), index=False)
+    #RT = 0.01
+    #combined_uni = drop_duplicates_rel_tol(combined, compare_cols=cols_to_check, rtol=RT)
+    #combined_uni.to_csv(os.path.join(dir_path,'DVCSxsec_Merge.csv'), index=False)
 
     # ======================================================
     # Below test the choice of rtol
