@@ -18,7 +18,7 @@ ChargeFF_YAHL_Mod_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/ChargeFF_Fit/
 print(ChargeFF_YAHL_Mod_DF.shape)
 
 # --------------------------------
-# lattice generalized form factors
+# lattice quark generalized form factors
 # --------------------------------
 '''
 GFFdatalat_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/GFFs_Lat_Fit/GFF_BNL/GFFDataLat_BNL.csv'))
@@ -30,13 +30,20 @@ print(GFFdatalat_DF_Mod.shape)
 EtFFData_ETMC_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/GFFs_Lat_Fit/GFF_ETMC/EtFFdata_ETMC_Mod.csv'),header=None, names=['j','t','mu','f','delta f','GPD type','flavor'])
 print(EtFFData_ETMC_DF.shape)
 
+# --------------------------------
+# lattice gluon generalized form factors
+# --------------------------------
+
+AgFFData_MIT_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/GFFs_Lat_Fit/GFF_MIT/AgData_MIT_Mod.csv'),header=0, names=['j','t','mu','f','delta f','GPD type','flavor'])
+print(AgFFData_MIT_DF.shape)
+
 # ================================
 # Merge All form factors
 # ================================
 
-merge = pd.concat([ChargeFF_YAHL_Mod_DF, GFFdatalat_DF_Mod, EtFFData_ETMC_DF], axis=0)
+merge = pd.concat([ChargeFF_YAHL_Mod_DF, GFFdatalat_DF_Mod, EtFFData_ETMC_DF, AgFFData_MIT_DF], axis=0)
 print(merge.shape)
-merge.to_csv(os.path.join(dir_path,"GUMPDATA/GFFdata_Quark.csv"),index=None)
+merge.to_csv(os.path.join(dir_path,"GUMPDATA/GFFdata.csv"),index=None)
 
 # ===================================
 # Merge Fitted PDFs and polarized PDF
