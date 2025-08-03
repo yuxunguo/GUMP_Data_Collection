@@ -28,4 +28,7 @@ def DataFrame_ExtErr(DF: pd.DataFrame):
 
 AgDF_Form_Mod = DataFrame_ExtErr(AgDF_Form)
 
-AgDF_Form_Mod.to_csv(os.path.join(dir_path,'AgData_MIT_Mod.csv'),index=None)
+AgDF_Form_Mod_2 = AgDF_Form_Mod.copy()
+AgDF_Form_Mod_2 = AgDF_Form_Mod_2[AgDF_Form_Mod_2['t']>-1.6]
+
+AgDF_Form_Mod_2.to_csv(os.path.join(dir_path,'AgData_MIT_Mod.csv'),index=None)
