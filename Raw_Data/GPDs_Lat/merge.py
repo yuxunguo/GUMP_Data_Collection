@@ -7,8 +7,9 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 Hprep =  pd.read_csv(os.path.join(dir_path,'Preprocess/H_prep.csv'))
 Eprep =  pd.read_csv(os.path.join(dir_path,'Preprocess/E_prep.csv'))
 
-Hprep = Hprep[(Hprep['x']>0.2) & (Hprep['x']<0.7) & (abs(Hprep['x']-Hprep['xi'])>0.2)]
-Eprep = Eprep[(Eprep['x']>0.2) & (Eprep['x']<0.7) & (abs(Eprep['x']-Eprep['xi'])>0.2)]
+fmin = 0.2
+Hprep = Hprep[(Hprep['x']>0.2) & (Hprep['x']<0.7) & (abs(Hprep['x']-Hprep['xi'])>0.2) & (Hprep['f']>=fmin)]
+Eprep = Eprep[(Eprep['x']>0.2) & (Eprep['x']<0.7) & (abs(Eprep['x']-Eprep['xi'])>0.2) & (Eprep['f']>=fmin)]
 
 def downsample_group(subdf, max_len):
     n = len(subdf)
@@ -33,7 +34,7 @@ Hfin = pd.DataFrame({
     'Q': 2.0,
     'f': H_downsampled['f'],
      #'delta f': H_downsampled['delta f'],
-    'delta f': np.sqrt(H_downsampled['delta f']**2 + (0.3 * H_downsampled['f'])**2),
+    'delta f': np.maximum(np.sqrt(H_downsampled['delta f']**2 + (0.3 * H_downsampled['f'])**2), fmin),
     'GPD type': 0,
     'flavor': 'NS'
 })
@@ -45,7 +46,7 @@ Efin = pd.DataFrame({
     'Q': 2.0,
     'f': E_downsampled['f'],
     #'delta f': E_downsampled['delta f'],
-    'delta f': np.sqrt(E_downsampled['delta f']**2 + (0.3 * E_downsampled['f'])**2),
+    'delta f': np.maximum(np.sqrt(E_downsampled['delta f']**2 + (0.3 * E_downsampled['f'])**2), fmin),
     'GPD type': 1,
     'flavor': 'NS'
 })
