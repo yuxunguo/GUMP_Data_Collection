@@ -66,6 +66,13 @@ print(tPDF_DF.shape)
 tPDF_DF.to_csv(os.path.join(dir_path,"GUMPDATA/tPDFdata.csv"),index=None)
 
 # ===================================
+# GPD extraction
+# ===================================
+GPD_DF = pd.read_csv(os.path.join(dir_path,'Raw_Data/GPDs_Lat/GPDdata.csv'))
+print(GPD_DF.shape)
+GPD_DF.to_csv(os.path.join(dir_path,"GUMPDATA/GPDdata.csv"),index=None)
+
+# ===================================
 # DVCS cross-section and asymmetries
 # ===================================
 
