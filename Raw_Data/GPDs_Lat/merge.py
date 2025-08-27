@@ -32,8 +32,8 @@ Hfin = pd.DataFrame({
     't': H_downsampled['t'],
     'Q': 2.0,
     'f': H_downsampled['f'],
-    'delta f': H_downsampled['delta f'],
-    #'delta f': np.sqrt(H_downsampled['delta f']**2 + (0.3 * H_downsampled['f'])**2),
+     #'delta f': H_downsampled['delta f'],
+    'delta f': np.sqrt(H_downsampled['delta f']**2 + (0.3 * H_downsampled['f'])**2),
     'GPD type': 0,
     'flavor': 'NS'
 })
@@ -44,8 +44,8 @@ Efin = pd.DataFrame({
     't': E_downsampled['t'],
     'Q': 2.0,
     'f': E_downsampled['f'],
-    'delta f': E_downsampled['delta f'],
-    #'delta f': np.sqrt(E_downsampled['delta f']**2 + (0.3 * E_downsampled['f'])**2),
+    #'delta f': E_downsampled['delta f'],
+    'delta f': np.sqrt(E_downsampled['delta f']**2 + (0.3 * E_downsampled['f'])**2),
     'GPD type': 1,
     'flavor': 'NS'
 })
