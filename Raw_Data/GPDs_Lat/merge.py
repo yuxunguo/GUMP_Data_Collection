@@ -7,7 +7,8 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 Hprep =  pd.read_csv(os.path.join(dir_path,'Preprocess/H_prep.csv'))
 Eprep =  pd.read_csv(os.path.join(dir_path,'Preprocess/E_prep.csv'))
 
-fmin = 0.2
+fmin = 0.15
+
 Hprep = Hprep[(Hprep['x']>0.2) & (Hprep['x']<0.7) & (abs(Hprep['x']-Hprep['xi'])>0.2) & (Hprep['f']>=fmin)]
 Eprep = Eprep[(Eprep['x']>0.2) & (Eprep['x']<0.7) & (abs(Eprep['x']-Eprep['xi'])>0.2) & (Eprep['f']>=fmin)]
 
