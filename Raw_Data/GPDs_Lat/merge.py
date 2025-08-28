@@ -9,8 +9,8 @@ Eprep =  pd.read_csv(os.path.join(dir_path,'Preprocess/E_prep.csv'))
 
 fmin = 0.15
 
-Hprep = Hprep[(Hprep['x']>0.2) & (Hprep['x']<0.7) & (abs(Hprep['x']-Hprep['xi'])>0.2) & (Hprep['f']>=fmin)]
-Eprep = Eprep[(Eprep['x']>0.2) & (Eprep['x']<0.7) & (abs(Eprep['x']-Eprep['xi'])>0.2) & (Eprep['f']>=fmin)]
+Hprep = Hprep[(Hprep['x']>0.2) & (Hprep['x']<0.7) & ((Hprep['x']-Hprep['xi'])>0.2) & (Hprep['f']>=fmin)]
+Eprep = Eprep[(Eprep['x']>0.2) & (Eprep['x']<0.7) & ((Eprep['x']-Eprep['xi'])>0.2) & (Eprep['f']>=fmin)]
 
 def downsample_group(subdf, max_len):
     n = len(subdf)
