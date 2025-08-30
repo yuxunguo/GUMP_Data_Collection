@@ -1491,7 +1491,7 @@ for i in range(data_set.get_number_of_data_points()):
         "phi": kin_dict["phi"],  # Converting degrees to radians
         "A": obs_dict[obs_names[0]],
         "delta_A": delta_A,
-        "pol": "LL"  # Adding polarization info
+        "pol": "LU"  # Adding polarization info
     }
 
     # Appending to the list
@@ -1564,7 +1564,7 @@ for i in range(data_set.get_number_of_data_points()):
         "phi": kin_dict["phi"],  # Converting degrees to radians
         "A": obs_dict[obs_names[0]],
         "delta_A": delta_A,
-        "pol": "LL"  # Adding polarization info
+        "pol": "LU"  # Adding polarization info
     }
 
     # Appending to the list
