@@ -1488,7 +1488,7 @@ for i in range(data_set.get_number_of_data_points()):
         "xB": xB,
         "t": kin_dict["t"],
         "Q": np.sqrt(Q2),
-        "phi": np.radians(kin_dict["phi"]),  # Converting degrees to radians
+        "phi": kin_dict["phi"],  # Converting degrees to radians
         "A": obs_dict[obs_names[0]],
         "delta_A": delta_A,
         "pol": "LL"  # Adding polarization info
@@ -1561,7 +1561,7 @@ for i in range(data_set.get_number_of_data_points()):
         "xB": xB,
         "t": kin_dict["t"],
         "Q": np.sqrt(Q2),
-        "phi": np.radians(kin_dict["phi"]),  # Converting degrees to radians
+        "phi": kin_dict["phi"],  # Converting degrees to radians
         "A": obs_dict[obs_names[0]],
         "delta_A": delta_A,
         "pol": "LL"  # Adding polarization info
