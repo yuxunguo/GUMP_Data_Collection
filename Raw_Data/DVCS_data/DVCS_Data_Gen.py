@@ -87,9 +87,9 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Converting to DataFrame and export
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/1_CS_TKhscLcB.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/1_CS_TKhscLcB.csv"), index=False, header=False)
 
-print("Final file written to 1_CS_TKhscLcB.xlsx")
+print("Final file written to 1_CS_TKhscLcB.csv")
 
 #############################################################################################################
 
@@ -162,9 +162,9 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Saving to Excel
 df_uu = pd.DataFrame(rows_uu)
-df_uu.to_excel(os.path.join(dir_path,"DVCSoutput/2_CS_AtY8o7Ej_UU.xlsx"), index=False, header=False)
+df_uu.to_csv(os.path.join(dir_path,"DVCSoutput/2_CS_AtY8o7Ej_UU.csv"), index=False, header=False)
 
-print("Final file written to 2_CS_AtY8o7Ej_UU.xlsx")
+print("Final file written to 2_CS_AtY8o7Ej_UU.csv")
 
 #############################################################################################################
 
@@ -233,9 +233,9 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Converting to DataFrame and export
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/3_CS_msa6dh9v.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/3_CS_msa6dh9v.csv"), index=False, header=False)
 
-print("Final file written to 3_CS_msa6dh9v.xlsx")
+print("Final file written to 3_CS_msa6dh9v.csv")
 
 
 #############################################################################################################
@@ -309,9 +309,9 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Saving to Excel
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/4_CS_bmTzHHvg.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/4_CS_bmTzHHvg.csv"), index=False, header=False)
 
-print("Final file written to 4_CS_bmTzHHvg.xlsx")
+print("Final file written to 4_CS_bmTzHHvg.csv")
 
 #############################################################################################################
 
@@ -378,9 +378,9 @@ for i in range(data_set.get_number_of_data_points()):
     
 # Exporting UU data
 df_uu = pd.DataFrame(rows_uu)
-df_uu.to_excel(os.path.join(dir_path,"DVCSoutput/5_CS_RQncbKtk_UU.xlsx"), index=False, header=False)
+df_uu.to_csv(os.path.join(dir_path,"DVCSoutput/5_CS_RQncbKtk_UU.csv"), index=False, header=False)
 
-print("Final file written to 5_CS_RQncbKtk_UU.xlsx")
+print("Final file written to 5_CS_RQncbKtk_UU.csv")
 
 #############################################################################################################
 
@@ -449,10 +449,10 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Converting to DataFrame and export
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/6_CS_mJXCLi4G.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/6_CS_mJXCLi4G.csv"), index=False, header=False)
 
 
-print("Final file written to 6_CS_mJXCLi4G.xlsx")
+print("Final file written to 6_CS_mJXCLi4G.csv")
 
 #############################################################################################################
 
@@ -525,9 +525,9 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Saving to Excel
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/7_CS_Cb6meE7Q.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/7_CS_Cb6meE7Q.csv"), index=False, header=False)
 
-print("Final file written to 7_CS_Cb6meE7Q.xlsx")
+print("Final file written to 7_CS_Cb6meE7Q.csv")
 
 #############################################################################################################
 
@@ -596,9 +596,9 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Converting to DataFrame and export
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/8_CS_ob8hLTm2.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/8_CS_ob8hLTm2.csv"), index=False, header=False)
 
-print("Final file written to 8_CS_ob8hLTm2.xlsx")
+print("Final file written to 8_CS_ob8hLTm2.csv")
 
 
 
@@ -612,25 +612,37 @@ print("Final file written to 8_CS_ob8hLTm2.xlsx")
 
 # List of all the file names
 file_names = [
-    "1_CS_TKhscLcB.xlsx",
-    "2_CS_AtY8o7Ej_UU.xlsx",
-    "3_CS_msa6dh9v.xlsx",
-    "4_CS_bmTzHHvg.xlsx",
-    "5_CS_RQncbKtk_UU.xlsx",
-    "6_CS_mJXCLi4G.xlsx",
-    "7_CS_Cb6meE7Q.xlsx",
-    "8_CS_ob8hLTm2.xlsx"
+    "1_CS_TKhscLcB.csv",
+    "2_CS_AtY8o7Ej_UU.csv",
+    "3_CS_msa6dh9v.csv",
+    "4_CS_bmTzHHvg.csv",
+    "5_CS_RQncbKtk_UU.csv",
+    "6_CS_mJXCLi4G.csv",
+    "7_CS_Cb6meE7Q.csv",
+    "8_CS_ob8hLTm2.csv"
 ]
 
-# Combining all dataframes into one
-combined_df = pd.concat([pd.read_excel(os.path.join(dir_path,"DVCSoutput",file), header=None) for file in file_names], ignore_index=True)
+dfs = []
+for file in file_names:
+    # Extract identifier (remove prefix and extension)
+    identifier = file.split("_", 2)[-1].replace(".csv", "")
+    
+    # Load data
+    df = pd.read_csv(os.path.join(dir_path, "DVCSoutput", file), header=None)
+    
+    # Add comment column
+    df["comment"] = identifier
+    
+    dfs.append(df)
 
-# Saving to a new Excel file
-combined_df.to_excel(os.path.join(dir_path,"DVCSoutput/CS_Combined.xlsx"), index=False, header=False)
+# Combine all dataframes
+combined_df = pd.concat(dfs, ignore_index=True)
 
-print("Combined Cross sections file saved as  to CS_Combined.xlsx")
+# Save to new Excel
+output_path = os.path.join(dir_path, "DVCSoutput", "CS_Combined.csv")
+combined_df.to_csv(output_path, index=False, header=False)
 
-
+print(f"Combined Cross sections file saved as {output_path}")
 
 #############################################################################################################
 #############################################################################################################
@@ -710,9 +722,9 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Saving to Excel
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/9_CS_75ueQoQw.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/9_CS_75ueQoQw.csv"), index=False, header=False)
 
-print("Final file written to 9_CS_75ueQoQw.xlsx")
+print("Final file written to 9_CS_75ueQoQw.csv")
 
 
 
@@ -790,10 +802,10 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Converting to DataFrame and export
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/1_CSD_EqbtDRkv.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/1_CSD_EqbtDRkv.csv"), index=False, header=False)
 
 
-print("Final file written to 1_CSD_EqbtDRkv.xlsx")
+print("Final file written to 1_CSD_EqbtDRkv.csv")
 
 #############################################################################################################
 
@@ -861,10 +873,10 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Converting to DataFrame and export
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/2_CSD_nfPvTM2c.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/2_CSD_nfPvTM2c.csv"), index=False, header=False)
 
 
-print("Final file written to 2_CSD_nfPvTM2c.xlsx")
+print("Final file written to 2_CSD_nfPvTM2c.csv")
 
 
 #############################################################################################################
@@ -943,10 +955,10 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Saving to Excel
 df_lu = pd.DataFrame(rows_lu)
-df_lu.to_excel(os.path.join(dir_path,"DVCSoutput/3_CSD_AtY8o7Ej_LU.xlsx"), index=False, header=False)
+df_lu.to_csv(os.path.join(dir_path,"DVCSoutput/3_CSD_AtY8o7Ej_LU.csv"), index=False, header=False)
 
 
-print("Final file written to 3_CSD_AtY8o7Ej_LU.xlsx")
+print("Final file written to 3_CSD_AtY8o7Ej_LU.csv")
 
 
 
@@ -1017,9 +1029,9 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Exporting LU data
 df_lu = pd.DataFrame(rows_lu)
-df_lu.to_excel(os.path.join(dir_path,"DVCSoutput/4_CSD_RQncbKtk_LU.xlsx"), index=False, header=False)
+df_lu.to_csv(os.path.join(dir_path,"DVCSoutput/4_CSD_RQncbKtk_LU.csv"), index=False, header=False)
 
-print("Final file written to 4_CSD_RQncbKtk_LU.xlsx")
+print("Final file written to 4_CSD_RQncbKtk_LU.csv")
 
 
 #############################################################################################################
@@ -1097,9 +1109,9 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Saving to Excel
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/5_CSD_BJ84iv8s.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/5_CSD_BJ84iv8s.csv"), index=False, header=False)
 
-print("Final file written to 5_CSD_BJ84iv8s.xlsx")
+print("Final file written to 5_CSD_BJ84iv8s.csv")
 
 
 
@@ -1173,12 +1185,10 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Converting to DataFrame and export
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/6_CSD_EhPp8CP4.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/6_CSD_EhPp8CP4.csv"), index=False, header=False)
 
 
-print("Final file written to 6_CSD_EhPp8CP4.xlsx")
-
-
+print("Final file written to 6_CSD_EhPp8CP4.csv")
 
 
 
@@ -1193,21 +1203,35 @@ print("Final file written to 6_CSD_EhPp8CP4.xlsx")
 
 # List of all the Cross Section Difference LU Files
 file_list = [
-    "1_CSD_EqbtDRkv.xlsx",
-    "2_CSD_nfPvTM2c.xlsx",
-    "3_CSD_AtY8o7Ej_LU.xlsx",
-    "4_CSD_RQncbKtk_LU.xlsx",
-    "5_CSD_BJ84iv8s.xlsx",
-    "6_CSD_EhPp8CP4.xlsx"
+    "1_CSD_EqbtDRkv.csv",
+    "2_CSD_nfPvTM2c.csv",
+    "3_CSD_AtY8o7Ej_LU.csv",
+    "4_CSD_RQncbKtk_LU.csv",
+    "5_CSD_BJ84iv8s.csv",
+    "6_CSD_EhPp8CP4.csv"
 ]
 
-# Combining all the files
-combined_df = pd.concat([pd.read_excel(os.path.join(dir_path,"DVCSoutput",file), header=None) for file in file_list], ignore_index=True)
+dfs = []
+for file in file_list:
+    # Extract identifier (everything after the second underscore, remove extension)
+    identifier = file.split("_", 2)[-1].replace(".csv", "")
+    
+    # Load data
+    df = pd.read_csv(os.path.join(dir_path, "DVCSoutput", file), header=None)
+    
+    # Add comment column
+    df["comment"] = identifier
+    
+    dfs.append(df)
 
-# Saving to a new Excel file
-combined_df.to_excel(os.path.join(dir_path,"DVCSoutput/CSD_Combined.xlsx"), index=False, header=False)
+# Combine all dataframes
+combined_df = pd.concat(dfs, ignore_index=True)
 
-print("Combined Cross section Difference file saved as CSD_Combined.xlsx")
+# Save to new Excel
+output_path = os.path.join(dir_path, "DVCSoutput", "CSD_Combined.csv")
+combined_df.to_csv(output_path, index=False, header=False)
+
+print(f"Combined Cross section Difference file saved as {output_path}")
 
 
 
@@ -1284,10 +1308,10 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Converting to DataFrame and export
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/1_ALU_A6Pgo5TE_Q2.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/1_ALU_A6Pgo5TE_Q2.csv"), index=False, header=False)
 
 
-print("Final file written to 1_ALU_A6Pgo5TE_Q2.xlsx")
+print("Final file written to 1_ALU_A6Pgo5TE_Q2.csv")
 
 ###########################################################################################################
 
@@ -1355,10 +1379,10 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Converting to DataFrame and export
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/2_ALU_A6Pgo5TE_t.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/2_ALU_A6Pgo5TE_t.csv"), index=False, header=False)
 
 
-print("Final file written to 2_ALU_A6Pgo5TE_t.xlsx")
+print("Final file written to 2_ALU_A6Pgo5TE_t.csv")
 
 
 ###########################################################################################################
@@ -1427,10 +1451,10 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Converting to DataFrame and export
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/3_ALU_NvMm42PD.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/3_ALU_NvMm42PD.csv"), index=False, header=False)
 
 
-print("Final file written to 3_ALU_NvMm42PD.xlsx")
+print("Final file written to 3_ALU_NvMm42PD.csv")
 
 ###########################################################################################################
 
@@ -1488,10 +1512,10 @@ for i in range(data_set.get_number_of_data_points()):
         "xB": xB,
         "t": kin_dict["t"],
         "Q": np.sqrt(Q2),
-        "phi": np.radians(kin_dict["phi"]),  # Converting degrees to radians
+        "phi": kin_dict["phi"],  # Converting degrees to radians
         "A": obs_dict[obs_names[0]],
         "delta_A": delta_A,
-        "pol": "LL"  # Adding polarization info
+        "pol": "LU"  # Adding polarization info
     }
 
     # Appending to the list
@@ -1499,10 +1523,10 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Converting to DataFrame and export
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/4_ALL_QfefWWW2.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/4_ALL_QfefWWW2.csv"), index=False, header=False)
 
 
-print("Final file written to 4_ALL_QfefWWW2.xlsx")
+print("Final file written to 4_ALL_QfefWWW2.csv")
 
 
 ###########################################################################################################
@@ -1561,10 +1585,10 @@ for i in range(data_set.get_number_of_data_points()):
         "xB": xB,
         "t": kin_dict["t"],
         "Q": np.sqrt(Q2),
-        "phi": np.radians(kin_dict["phi"]),  # Converting degrees to radians
+        "phi": kin_dict["phi"],  # Converting degrees to radians
         "A": obs_dict[obs_names[0]],
         "delta_A": delta_A,
-        "pol": "LL"  # Adding polarization info
+        "pol": "LU"  # Adding polarization info
     }
 
     # Appending to the list
@@ -1572,10 +1596,10 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Converting to DataFrame and exporting
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/5_ALL_PusMstKs.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/5_ALL_PusMstKs.csv"), index=False, header=False)
 
 
-print("Final file written to 5_ALL_PusMstKs.xlsx")
+print("Final file written to 5_ALL_PusMstKs.csv")
 
 
 
@@ -1646,10 +1670,10 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Converting to DataFrame and export
 df = pd.DataFrame(rows)
-df.to_excel(os.path.join(dir_path,"DVCSoutput/6_ALU_AvF5daeP.xlsx"), index=False, header=False)
+df.to_csv(os.path.join(dir_path,"DVCSoutput/6_ALU_AvF5daeP.csv"), index=False, header=False)
 
 
-print("Final file written to 6_ALU_AvF5daeP.xlsx")
+print("Final file written to 6_ALU_AvF5daeP.csv")
 
 
 ###########################################################################################################
@@ -1751,46 +1775,52 @@ for i in range(data_set.get_number_of_data_points()):
 
 # Exporting LU data
 df_lu = pd.DataFrame(rows_lu)
-df_lu.to_excel(os.path.join(dir_path,"DVCSoutput/7.1_ALU_vGAKAf7P.xlsx"), index=False, header=False)
+df_lu.to_csv(os.path.join(dir_path,"DVCSoutput/7.1_ALU_vGAKAf7P.csv"), index=False, header=False)
 
 # Exporting UL data
 df_ul = pd.DataFrame(rows_ul)
-df_ul.to_excel(os.path.join(dir_path,"DVCSoutput/7.2_AUL_vGAKAf7P.xlsx"), index=False, header=False)
+df_ul.to_csv(os.path.join(dir_path,"DVCSoutput/7.2_AUL_vGAKAf7P.csv"), index=False, header=False)
 
 # Exporting LL data
 df_ll = pd.DataFrame(rows_ll)
-df_ll.to_excel(os.path.join(dir_path,"DVCSoutput/7.3_ALL_vGAKAf7P.xlsx"), index=False, header=False)
+df_ll.to_csv(os.path.join(dir_path,"DVCSoutput/7.3_ALL_vGAKAf7P.csv"), index=False, header=False)
 
-print("ALU, AUL, ALL files written to 7.1_ALU_vGAKAf7P.xlsx and 7.2_AUL_vGAKAf7P.xlsx and 7.3_ALL_vGAKAf7P.xlsx")
-
-
+print("ALU, AUL, ALL files written to 7.1_ALU_vGAKAf7P.csv and 7.2_AUL_vGAKAf7P.csv and 7.3_ALL_vGAKAf7P.csv")
 
 
 
 
 
-# List of all asymmetry files 
 file_list = [
-    "1_ALU_A6Pgo5TE_Q2.xlsx",
-    "2_ALU_A6Pgo5TE_t.xlsx",
-    "3_ALU_NvMm42PD.xlsx",
-    "4_ALL_QfefWWW2.xlsx",
-    "5_ALL_PusMstKs.xlsx",
-    "6_ALU_AvF5daeP.xlsx",
-    "7.1_ALU_vGAKAf7P.xlsx",
-    "7.2_AUL_vGAKAf7P.xlsx",
-    "7.3_ALL_vGAKAf7P.xlsx"
+    "1_ALU_A6Pgo5TE_Q2.csv",
+    "2_ALU_A6Pgo5TE_t.csv",
+    "3_ALU_NvMm42PD.csv",
+    "4_ALL_QfefWWW2.csv",
+    "5_ALL_PusMstKs.csv",
+    "6_ALU_AvF5daeP.csv",
+    "7.1_ALU_vGAKAf7P.csv",
+    "7.2_AUL_vGAKAf7P.csv",
+    "7.3_ALL_vGAKAf7P.csv"
 ]
 
-# Combining all files
-combined_df = pd.concat([pd.read_excel(os.path.join(dir_path,"DVCSoutput",file), header=None) for file in file_list], ignore_index=True)
+dfs = []
+for file in file_list:
+    # Extract identifier (everything after the second underscore, remove .csv)
+    identifier = file.split("_", 2)[-1].replace(".csv", "")
+    
+    # Load data
+    df = pd.read_csv(os.path.join(dir_path, "DVCSoutput", file), header=None)
+    
+    # Add comment column
+    df["comment"] = identifier
+    
+    dfs.append(df)
 
-# Saving to a new Excel file
-combined_df.to_excel(os.path.join(dir_path,"DVCSoutput/ASYMMETRIES_combined.xlsx"), index=False, header=False)
+# Combine all dataframes
+combined_df = pd.concat(dfs, ignore_index=True)
 
-print("Combined asymmetry file saved as ASYMMETRIES_combined.xlsx")
+# Save to new Excel
+output_path = os.path.join(dir_path, "DVCSoutput", "ASYMMETRIES_combined.csv")
+combined_df.to_csv(output_path, index=False, header=False)
 
-
-
-
-
+print(f"Combined asymmetry file saved as {output_path}")

@@ -9,16 +9,16 @@ Q_threshold = 1.9
 xB_Cut = 0.5
 M=0.938
 
-DVCS_names = ["y","xB","t","Q","phi","f","delta f","pol"]
+DVCS_names = ["y","xB","t","Q","phi","f","delta f","pol","comment"]
 cols_to_check = ['y', 'xB', 't', 'Q', 'phi', 'f', 'pol']
 
 # ============================================================
 # Read from the DVCS including cross-sections and asymmetries
 # ============================================================
 
-DVCS_xsec_unp = pd.read_excel(os.path.join(dir_path,'DVCSoutput/CS_Combined.xlsx'),names=DVCS_names)
-DVCS_xsec_pol = pd.read_excel(os.path.join(dir_path,'DVCSoutput/CSD_Combined.xlsx'),names=DVCS_names)
-DVCS_asymmetry = pd.read_excel(os.path.join(dir_path,'DVCSoutput/ASYMMETRIES_combined.xlsx'),names=DVCS_names)
+DVCS_xsec_unp = pd.read_csv(os.path.join(dir_path,'DVCSoutput/CS_Combined.csv'),names=DVCS_names)
+DVCS_xsec_pol = pd.read_csv(os.path.join(dir_path,'DVCSoutput/CSD_Combined.csv'),names=DVCS_names)
+DVCS_asymmetry = pd.read_csv(os.path.join(dir_path,'DVCSoutput/ASYMMETRIES_combined.csv'),names=DVCS_names)
 
 # ============================================================
 # Merge polarized and unpolaried cross-sections and output
