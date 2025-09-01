@@ -40,7 +40,10 @@ print(AgFFData_MIT_DF.shape)
 # ================================
 # Merge All form factors
 # ================================
-
+ChargeFF_YAHL_Mod_DF['comment'] = 'exp'
+GFFdatalat_DF_Mod['comment'] = 'lat'
+EtFFData_ETMC_DF['comment'] = 'lat'
+AgFFData_MIT_DF['comment'] = 'lat'
 merge = pd.concat([ChargeFF_YAHL_Mod_DF, GFFdatalat_DF_Mod, EtFFData_ETMC_DF, AgFFData_MIT_DF], axis=0)
 print(merge.shape)
 merge.to_csv(os.path.join(dir_path,"GUMPDATA/GFFdata.csv"),index=None)
